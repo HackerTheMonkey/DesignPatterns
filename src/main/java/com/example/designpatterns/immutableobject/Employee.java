@@ -18,7 +18,7 @@ public final class Employee
 		this.SSN = SSN;
 		this.address = address;
 		this.car = car;
-	}
+	}	
 
 	/**
 	 * Getters and setters
@@ -40,7 +40,7 @@ public final class Employee
 	}
 
 	public Car getCar() throws CloneNotSupportedException {
-		return car.clone();
+		return car.clone(); // or new Car(car);  // Using the Car's copy constructor
 	}
 
 	

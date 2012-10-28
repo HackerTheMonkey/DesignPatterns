@@ -8,6 +8,14 @@ public class Car
 	public Car(String carType) {
 		this.carType = carType;
 	}
+	
+	/**
+	 * Copy constructor
+	 */
+	public Car(Car car)
+	{
+		this(car.getCarType());
+	}
 
 	public String getCarType() {
 		return carType;
