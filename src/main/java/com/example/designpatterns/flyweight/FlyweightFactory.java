@@ -33,7 +33,7 @@ public class FlyweightFactory {
 		private String division;
 		
 		
-		public FlyweightImpl(String division)
+		private FlyweightImpl(String division)
 		{
 			if("LBi-Technology".equals(division))
 			{
