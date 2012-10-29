@@ -18,7 +18,7 @@ public class FlyweightFactory {
 	public Flyweight getFlyweight(String division) {		
 		Flyweight flyweight = flyweightStore.get(division);
 		if(flyweight == null){
-			flyweight = new FlyweightImpl(division);
+			flyweight = new FlyweightImpl(division);			
 			flyweightStore.put(division, flyweight);			
 		}
 		return flyweight;
