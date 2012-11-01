@@ -1,17 +1,17 @@
 package com.example.designpatterns.memento;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
 /**
- * This is a decorator on the top of an ArrayList
- * @see the decorator design pattern
- * 
+ * This class is designed using the Decorator design
+ * pattern
+ *
+ * Note: The reason we extending ArrayList here is to have a similar
+ * interface and not to extend the functionality of the superclass. We
+ * are extending the functionality of the wrapped @List<Customer> instead.
  */
 public class Customers<T extends Customer> extends ArrayList<T>
 {	
@@ -39,23 +39,30 @@ public class Customers<T extends Customer> extends ArrayList<T>
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean writeTo(String outputDataFile) throws FileNotFoundException 
+	public DataWritingResponse writeTo(String outputDataFile) throws IOException
 	{ 
 		File outputFile = new File(outputDataFile);
-		PrintStream outputFilePrintStream = new PrintStream(outputFile);
-		
-		Iterator<Customer> customerIterator = customers.iterator();
-		
-		while(customerIterator.hasNext())
-		{
-			Customer customer = customerIterator.next();			
-			outputFilePrintStream.append(customer.getSql());
-		}
-		
-		outputFilePrintStream.flush();
-		outputFilePrintStream.close();
-		
-		return true;
+
+        PrintWriter outputFilePrintStream = new PrintWriter(new BufferedWriter(new FileWriter(outputFile, true)));
+
+        int lastProcesedRecord = 0;
+
+        for (Customer customer : customers) {
+            Validator customerValidator = new CustomerValidator();
+
+            if (customerValidator.isValid(customer)) {
+                outputFilePrintStream.append(customer.getSql());
+                outputFilePrintStream.flush();
+                lastProcesedRecord = customer.getLastProcessedRecord();
+            } else {
+                return new DataWritingResponse(false, lastProcesedRecord);
+            }
+        }
+
+        //outputFilePrintStream.flush();
+        outputFilePrintStream.close();
+
+        return new DataWritingResponse(true, lastProcesedRecord);
 	}
 
 	@Override

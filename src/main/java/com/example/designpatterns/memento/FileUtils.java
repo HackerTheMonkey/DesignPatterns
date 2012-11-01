@@ -1,15 +1,10 @@
 package com.example.designpatterns.memento;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * This class is designed using the singleton design
  * pattern
- *
  */
 public class FileUtils 
 {
@@ -46,4 +41,8 @@ public class FileUtils
 		return getBufferedReaderForFile(file).readLine();
 	}
 
+
+    public boolean deleteFile(File file) {
+        return file.delete();
+    }
 }
