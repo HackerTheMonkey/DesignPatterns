@@ -23,10 +23,10 @@ public class DataConverter
 
 	public boolean process() throws IOException 
 	{
-        DataWritingResponse dataWritingResponse = generateCustomers(inputDataFile).writeTo(OUTPUT_DATA_FILE);
-        setLastProcessedId(dataWritingResponse.getLastProcesedRecord());
+        Response response = generateCustomers(inputDataFile).writeTo(OUTPUT_DATA_FILE);
+        setLastProcessedId(response.getLastProcesedRecord());
 
-        return dataWritingResponse.getProcessingResult();
+        return response.getProcessingResult();
 	}
 
 	private Customers<Customer> generateCustomers(String inputDataFile) throws IOException 

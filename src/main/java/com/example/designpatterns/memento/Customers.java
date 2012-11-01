@@ -39,7 +39,7 @@ public class Customers<T extends Customer> extends ArrayList<T>
 		throw new UnsupportedOperationException();
 	}
 
-	public DataWritingResponse writeTo(String outputDataFile) throws IOException
+	public Response writeTo(String outputDataFile) throws IOException
 	{ 
 		File outputFile = new File(outputDataFile);
 
@@ -59,7 +59,6 @@ public class Customers<T extends Customer> extends ArrayList<T>
             }
         }
 
-        //outputFilePrintStream.flush();
         outputFilePrintStream.close();
 
         return new DataWritingResponse(true, lastProcesedRecord);
@@ -69,9 +68,29 @@ public class Customers<T extends Customer> extends ArrayList<T>
 	public int size() {	
 		return customers.size();
 	}
-	
-	/**
-	 * TODO implement/override the rest of the methods as needed
-	 */
 
+
+
+    private class DataWritingResponse implements Response {
+
+        private final boolean value;
+        private final int lastProcesedRecord;
+
+        private DataWritingResponse(boolean value, int lastProcesedRecord) {
+            this.value = value;
+            this.lastProcesedRecord = lastProcesedRecord;
+        }
+
+
+        @Override
+        public int getLastProcesedRecord() {
+            return lastProcesedRecord;
+        }
+
+        @Override
+        public boolean getProcessingResult() {
+            return value;
+        }
+
+    }
 }
