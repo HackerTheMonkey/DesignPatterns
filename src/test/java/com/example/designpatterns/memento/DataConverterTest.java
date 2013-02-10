@@ -129,4 +129,5 @@ public class DataConverterTest
 	private void dataProcessingShouldCompleteSuccessfully() throws IOException {
         assertThat("The data conversion process must succeed", dataConverterWithoutValidation.process(), is(true));
 	}
+
 }
