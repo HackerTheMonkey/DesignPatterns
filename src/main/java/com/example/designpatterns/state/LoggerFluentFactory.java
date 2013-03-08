@@ -1,4 +1,6 @@
-package com.example.designpatterns.decorator;
+package com.example.designpatterns.state;
+
+import com.example.designpatterns.decorator.*;
 
 public class LoggerFluentFactory
 {
