@@ -1,5 +1,6 @@
 package com.example.designpatterns.decorator;
 
+import com.example.designpatterns.state.LoggerFluentFactory;
 import org.junit.Before;
 import org.junit.Test;
 

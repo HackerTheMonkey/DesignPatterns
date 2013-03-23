@@ -10,7 +10,8 @@ public class AbbreviatedDecorator implements Logger{
     }
 
     @Override
-    public void log(String message) {
+    public void log(String message)
+    {
         String abbreviateMessage = StringUtils.abbreviate(message, message.length() - 5);
         System.out.println("Abbreviated message: " + abbreviateMessage);
         logger.log(abbreviateMessage);
