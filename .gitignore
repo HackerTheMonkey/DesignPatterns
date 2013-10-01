@@ -6,3 +6,5 @@ target
 .project
 .idea
 .iml
+serialized_singleton_instance.bin
+designpatterns.iml
