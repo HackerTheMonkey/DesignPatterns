@@ -85,6 +85,7 @@ public class SingletonTest {
         SingletonC deserializedSingletonC = (SingletonC) deserialize();
         assertTrue(deserializedSingletonC == originalInstance);
         assertThat(deserializedSingletonC.someInstanceMember, is(notNullValue()));
+        assertThat(deserializedSingletonC instanceof MyInterface, is(true));
     }
 
     private Object deserialize() throws IOException, ClassNotFoundException {
