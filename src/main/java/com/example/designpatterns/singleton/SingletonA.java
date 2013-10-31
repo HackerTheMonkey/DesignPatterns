@@ -6,6 +6,7 @@ public class SingletonA implements Serializable{
 
     public static final SingletonA INSTANCE = new SingletonA();
     public transient String someInstanceMember;
+    private String foo;
 
     private SingletonA(){
         someInstanceMember = "test value";
@@ -16,5 +17,9 @@ public class SingletonA implements Serializable{
 
     public Object readResolve(){
         return INSTANCE;
+    }
+
+    public String getFoo() {
+        return foo;
     }
 }
