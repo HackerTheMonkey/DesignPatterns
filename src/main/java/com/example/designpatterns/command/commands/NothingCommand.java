@@ -5,4 +5,9 @@ public class NothingCommand implements Command {
     public void execute() {
         // do nothing
     }
+
+    @Override
+    public void undo() {
+        // do nothing
+    }
 }

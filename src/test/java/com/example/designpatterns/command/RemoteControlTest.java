@@ -41,8 +41,12 @@ public class RemoteControlTest {
         remoteControl.pressOffButton(1);
         remoteControl.pressOffButton(2);
 
+        remoteControl.pressUndo();
+
         remoteControl.pressOffButton(0);
         remoteControl.pressOnButton(1);
+
+        remoteControl.pressUndo();
 
 
     }

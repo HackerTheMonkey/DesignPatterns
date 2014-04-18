@@ -15,4 +15,9 @@ public class StereoOnWithCDCommand implements Command{
         stereo.playCD();
         stereo.increaseVolume(11);
     }
+
+    @Override
+    public void undo() {
+        stereo.off();
+    }
 }

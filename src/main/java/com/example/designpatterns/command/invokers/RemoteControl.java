@@ -7,6 +7,7 @@ public class RemoteControl {
 
     private Command[] onCommands = new Command[7];
     private Command[] offCommands = new Command[7];
+    private Command lastExecutedCommand = new NothingCommand();
 
     public RemoteControl() {
         initDefaults();
@@ -30,9 +31,15 @@ public class RemoteControl {
 
     public void pressOnButton(int slot) {
         onCommands[slot].execute();
+        lastExecutedCommand = onCommands[slot];
     }
 
     public void pressOffButton(int slot) {
         offCommands[slot].execute();
+        lastExecutedCommand = offCommands[slot];
+    }
+
+    public void pressUndo() {
+        lastExecutedCommand.undo();
     }
 }
