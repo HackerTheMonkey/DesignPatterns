@@ -1,6 +1,6 @@
-package com.example.designpatterns.Strategy;
+package com.example.designpatterns.strategy;
 
-import com.example.designpatterns.Strategy.payments.PaymentStrategy;
+import com.example.designpatterns.strategy.payments.PaymentStrategy;
 
 public class ShoppingBasket {
     private Item item;

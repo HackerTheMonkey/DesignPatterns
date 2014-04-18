@@ -1,8 +1,8 @@
-package com.example.designpatterns.Strategy;
+package com.example.designpatterns.strategy;
 
-import com.example.designpatterns.Strategy.payments.CreditCardPaymentStrategy;
-import com.example.designpatterns.Strategy.payments.DebitCardPaymentStrategy;
-import com.example.designpatterns.Strategy.payments.PaypalPaymentStrategy;
+import com.example.designpatterns.strategy.payments.CreditCardPaymentStrategy;
+import com.example.designpatterns.strategy.payments.DebitCardPaymentStrategy;
+import com.example.designpatterns.strategy.payments.PaypalPaymentStrategy;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

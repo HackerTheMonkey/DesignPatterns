@@ -1,4 +1,4 @@
-package com.example.designpatterns.Strategy;
+package com.example.designpatterns.strategy;
 
 public class Item {
     private final String name;

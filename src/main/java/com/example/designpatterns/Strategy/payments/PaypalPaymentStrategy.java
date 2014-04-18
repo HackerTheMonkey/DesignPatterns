@@ -1,6 +1,6 @@
-package com.example.designpatterns.Strategy.payments;
+package com.example.designpatterns.strategy.payments;
 
-import com.example.designpatterns.Strategy.Item;
+import com.example.designpatterns.strategy.Item;
 
 public class PaypalPaymentStrategy implements PaymentStrategy{
     @Override
