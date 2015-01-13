@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -72,7 +73,7 @@ public class VisitorTest
     public void should_return_total_uk_shipping_costs()
     {
         createUkOrders();
-        assertThat(orderManager.getTotalUkShippingCost(), is(equalTo(0.0)));
+        assertThat(orderManager.getTotalUkShippingCost(), is(greaterThan(0.0)));
     }
 
     private void createOverseasOrders() {
